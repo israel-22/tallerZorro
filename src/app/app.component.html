@@ -1,0 +1,101 @@
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar"
+    nzCollapsible
+    nzWidth="256px"
+    nzBreakpoint="md"
+    [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null">
+    <div class="sidebar-logo">
+      <a href="https://ng.ant.design/" target="_blank">
+        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
+        <h1>Consola</h1>
+      </a>
+    </div>
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="team">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/welcome">Welcome</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a>Monitor</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a>Workplace</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a>Basic Form</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div 
+        class="app-header" 
+        nz-flex 
+        nzJustify="space-between"
+        nzAlign="center"
+        >
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+            <span class="trigger"
+               nz-icon
+               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            ></span>
+        </span>
+        <nz-avatar 
+          nzIcon="user" 
+          routerLink="/login"
+          *ngIf="!isLogged();else loggedIn"
+          style="cursor: pointer; background-color:#87d068; margin-right: 16px;"
+          nzTooltipTitle="Iniciar Sesión" 
+          nzTooltipPlacement="bottom"
+          nz-tooltip
+          ></nz-avatar>
+        <ng-template #loggedIn>
+          <button nzType="text" nz-button nz-dropdown [nzDropdownMenu]="menu">
+            <nz-avatar 
+              nzIcon="user" 
+              [nzSrc]="registersService.currentRegister?.photoURL"
+            >
+            </nz-avatar>
+            <span style="margin-left: 8px;" nz-icon nzType="down"></span>
+          </button>
+          <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu>
+              <li nz-menu-item>
+                <a>Editar perfil</a>
+              </li>
+              <li nz-menu-item>
+                <a (click)="onClickLogout()">Cerrar sesión</a>
+              </li>
+            </ul>
+          </nz-dropdown-menu>   
+        </ng-template>  
+      </div>
+    </nz-header>
+    <nz-breadcrumb style="margin-top: 16px; margin-left: 16px;">
+      <nz-breadcrumb-item>
+        <span nz-icon nzType="home"></span>
+      </nz-breadcrumb-item>
+      <nz-breadcrumb-item>
+        <a>
+          <span nz-icon nzType="user"></span>
+          <span>Application List</span>
+        </a>
+      </nz-breadcrumb-item>
+      <nz-breadcrumb-item>Application</nz-breadcrumb-item>
+    </nz-breadcrumb>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+    <nz-footer>Footer</nz-footer>
+  </nz-layout>
+</nz-layout>
