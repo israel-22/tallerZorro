@@ -1,12 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Firestore, collectionData, collection } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-usuario',
-  standalone: true,
-  imports: [],
   templateUrl: './usuario.component.html',
-  styleUrl: './usuario.component.css'
+  styleUrls: ['./usuario.component.css']
 })
-export class UsuarioComponent {
+export class UsuarioComponent implements OnInit {
+  usuarios$: Observable<any[]> | undefined;
 
+  constructor(private firestore: Firestore) {}
+
+  ngOnInit() {
+    const usuariosCollection = collection(this.firestore, 'usuarios');
+    this.usuarios$ = collectionData(usuariosCollection, { idField: 'id' });
+  }
 }
