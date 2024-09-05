@@ -19,5 +19,15 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
 registerLocaleData(en);
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideNzIcons(icons), provideNzI18n(en_US), importProvidersFrom(FormsModule), provideAnimationsAsync(), provideHttpClient(), provideFirebaseApp(() => initializeApp({"projectId":"app-pokemon-75b64","appId":"1:449740175647:web:3218d7ae665fe13095582a","databaseURL":"https://app-pokemon-75b64-default-rtdb.firebaseio.com","storageBucket":"app-pokemon-75b64.appspot.com","apiKey":"AIzaSyBoWZGcvEl5cmrXFu_ZTU_6jjENE3GPHak","authDomain":"app-pokemon-75b64.firebaseapp.com","messagingSenderId":"449740175647","measurementId":"G-1YDL6JY42B"})), provideAuth(() => getAuth()), provideAnalytics(() => getAnalytics()), ScreenTrackingService, UserTrackingService, provideFirestore(() => getFirestore()), provideStorage(() => getStorage())]
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }),
+     provideRouter(routes), 
+     provideNzIcons(icons), provideNzI18n(en_US), 
+     importProvidersFrom(FormsModule), provideAnimationsAsync(), 
+     provideHttpClient(), 
+         provideFirebaseApp(() => initializeApp({"projectId":"app-chocolate-da639",
+          "appId":"1:606470027847:web:aeaf26ad63db0bd3cbcf62","storageBucket":"app-chocolate-da639.appspot.com",
+          "apiKey":"AIzaSyDBounxyHIudKFOaraIOCjD-xJ8IrBefOo","authDomain":"app-chocolate-da639.firebaseapp.com",
+          "messagingSenderId":"606470027847","measurementId":"G-7LS2F1FQJS"})), provideAuth(() => getAuth()),
+           provideAnalytics(() => getAnalytics()), ScreenTrackingService, UserTrackingService, 
+           provideFirestore(() => getFirestore()), provideStorage(() => getStorage())]
 };
