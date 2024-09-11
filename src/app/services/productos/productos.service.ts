@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { addDoc, collection, collectionData, deleteDoc, doc, Firestore, updateDoc } from '@angular/fire/firestore';
+import { getDownloadURL, ref, Storage, uploadBytes } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 
 
@@ -20,7 +21,7 @@ export class ProductosService {
     throw new Error('Method not implemented.');
   }
 
-  constructor(private firestore: Firestore) { }
+  constructor(private firestore: Firestore,  private storage: Storage) { }
 //leer los porductos (traer)
   getProductos(): Observable<Productos[]> {
 
@@ -42,6 +43,18 @@ updateProduct({ id,image, name, categoria, descripcion, precio,tipo}:Productos):
 deleteProduct(id: string): Promise<any> {
   const  productsRef = doc(this.firestore, `products/${id}`);
   return deleteDoc(productsRef);
+}
+
+//subir imagen
+uploadImage(file:File): Promise<string> {
+   const storageRef=ref(this.storage, `images/${file.name}`);
+
+  return uploadBytes(storageRef,file)
+  .then((snapshot)=>getDownloadURL(snapshot.ref))
+  .catch((error)=>{
+    console.log('Error al subir la imagen', error);
+    throw error;
+  });
 }
 
 }

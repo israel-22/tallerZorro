@@ -23,10 +23,13 @@ export const appConfig: ApplicationConfig = {
      provideNzIcons(icons), provideNzI18n(en_US),
      importProvidersFrom(FormsModule), provideAnimationsAsync(),
      provideHttpClient(),
-         provideFirebaseApp(() => initializeApp({"projectId":"app-chocolate-da639",
-          "appId":"1:606470027847:web:aeaf26ad63db0bd3cbcf62","storageBucket":"app-chocolate-da639.appspot.com",
+         provideFirebaseApp(() => initializeApp({
+          "projectId":"app-chocolate-da639",
+          "appId":"1:606470027847:web:aeaf26ad63db0bd3cbcf62",
+          "storageBucket":"app-chocolate-da639.appspot.com",
           "apiKey":"AIzaSyDBounxyHIudKFOaraIOCjD-xJ8IrBefOo","authDomain":"app-chocolate-da639.firebaseapp.com",
-          "messagingSenderId":"606470027847","measurementId":"G-7LS2F1FQJS"})), provideAuth(() => getAuth()),
+          "messagingSenderId":"606470027847",
+          "measurementId":"G-7LS2F1FQJS"})), provideAuth(() => getAuth()),
            provideAnalytics(() => getAnalytics()), ScreenTrackingService, UserTrackingService,
            provideFirestore(() => getFirestore()), provideStorage(() => getStorage())]
 };
