@@ -7,7 +7,7 @@
         <th scope="col" class="p-4">Nombre de preferencia</th>
         <th scope="col" class="p-4">Correo Eléctronico</th>
         <th scope="col" class="p-4">Role</th>
-        <!-- <th scope="col" class="p-4">Acciones</th> -->
+        <th scope="col" class="p-4">Accion</th>
       </tr>
     </thead>
 
@@ -35,6 +35,14 @@
         <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap ">
           {{user.role}}
         </td>
+        <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap ">
+          <button (click)="onSendEmail(user)" type="button" id="createProductButton"
+            data-modal-toggle="createProductModal"
+            class="flex items-center justify-center text-white bg-orange-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+                 Enviar Correo
+          </button>
+        </td>
+
       </tr>
     </tbody>
   </table>

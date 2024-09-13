@@ -1,0 +1,20 @@
+
+.conten{
+background-color: aqua;
+height: 100%;
+width: 100%;
+}
+/* Asegúrate de que el contenedor principal ocupe toda la altura de la pantalla */
+.h-screen {
+  height: 100vh;
+}
+
+/* Asegura que el contenedor tenga overflow vertical */
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+/* Asegúrate de que el contenedor tenga suficiente espacio para su contenido */
+.conten {
+  max-height: calc(100vh - 64px - 40px); /* Ajusta si tienes diferentes alturas de encabezado y pie de página */
+}

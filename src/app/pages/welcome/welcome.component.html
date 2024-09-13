@@ -1,32 +1,45 @@
-<div 
-    nz-flex 
-    [nzVertical]="true" 
-    nzGap="middle"
-    nzAlign="center" 
-    nzJustify="flex-start"
-    style="min-height: 400px;"
-    >
-    <h2 nz-typography>Botones</h2>
-    <div 
-        class="btn-wrapper" 
-        nz-flex 
-        [nzGap]="'middle'" 
-        nzWrap="wrap"
-        nzAlign="center" 
-        nzJustify="center"
-        >
-        <button 
-            *ngFor="let _ of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
-            style="width: 100px" 
-            nz-button nzType="primary">
-            Button {{ _ }}
-        </button>
+<div class=" overflow-y-auto grid grid-cols-2 gap-6">
+  <!-- Imagen redonda centrada a la izquierda -->
+  <div class="flex items-center justify-center bg-blue-400 p-7 pt-3 rounded-s">
+    <img class="rounded-full w-30 h-30 "
+         src="https://images-platform.99static.com/YdZ9YL8Qwh2E-zREkR1Iv0F7CZ0=/500x500/top/smart/99designs-contests-attachments/22/22662/attachment_22662323"
+         alt="image description">
+  </div>
+
+  <!-- Contenedor del título y menú centrado a la derecha -->
+  <div class="flex flex-col items-center justify-center p-8 bg-white rounded-lg shadow-lg dark:bg-gray-700">
+    <!-- Título grande y elegante -->
+    <h1 class="text-3xl font-bold text-center text-gray-900 mb-4 dark:text-white">
+      Bienvenido al Acceso de My-Store Company
+    </h1>
+
+    <!-- Menú y contenido de la tienda -->
+    <div id="mega-menu-full-image-dropdown" class="w-full mt-4 bg-white border-gray-200 shadow-sm border-y dark:bg-gray-800 dark:border-gray-600">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-screen-xl px-4 py-5 mx-auto text-sm text-gray-500 dark:text-gray-400">
+        <!-- Enlaces del menú -->
+        <ul class="mb-4 space-y-4 md:mb-0">
+          <li>
+            <a routerLink="/product" class="hover:bg-amber-300">Productos</a>
+          </li>
+          <li>
+            <a routerLink="/users"class="hover:bg-amber-300">Usuarios</a>
+          </li>
+          <li>
+            <a routerLink="/products"  class="hover:bg-amber-300">Administración de Productos</a>
+          </li>
+          <li>
+            <a routerLink="/user"  class="hover:bg-amber-300">Administracion de Usuarios</a>
+          </li>
+        </ul>
+
+        <!-- Imagen de fondo con texto superpuesto -->
+        <a class="p-8 bg-local bg-center bg-no-repeat bg-cover rounded-lg bg-blend-multiply text-slate-800 hover:text-blue-800"
+           style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEIAlewf0Vbq3t2QGwuOhCK2IW6ulq89fUkQ&s')">
+          <p class="font-extrabold text-lg leading-tight tracking-tight">
+            My-Store, la mejor tienda online del País
+          </p>
+        </a>
+      </div>
     </div>
-    <nz-divider nzText="División"></nz-divider>
-    <nz-steps>
-        <nz-step nzTitle="Login" nzStatus="finish" nzIcon="user"></nz-step>
-        <nz-step nzTitle="Verification" nzStatus="finish" nzIcon="solution"></nz-step>
-        <nz-step nzTitle="Pay" nzStatus="finish" nzIcon="loading"></nz-step>
-        <nz-step nzTitle="Done" nzStatus="finish" nzIcon="smile"></nz-step>
-      </nz-steps>    
+  </div>
 </div>

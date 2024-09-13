@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { 
+import {
   Firestore,
   collection,
   collectionData,
   doc,
   addDoc,
   updateDoc,
-  deleteDoc, 
+  deleteDoc,
   query,
   where,
   getDocs
@@ -29,6 +29,7 @@ export interface Register {
 })
 export class RegistersService {
   currentRegister?: Register;
+ 
 
   constructor(private firestore: Firestore, private usersService: UsersService) { }
 
@@ -43,7 +44,7 @@ export class RegistersService {
       });
     const uid = userCredential.user.uid;
     this.getRegister(uid).then(query => {
-      query.forEach(element => this.currentRegister = element.data() as Register);      
+      query.forEach(element => this.currentRegister = element.data() as Register);
     });
     return this.currentRegister;
   }
@@ -59,9 +60,9 @@ export class RegistersService {
       });
     const uid = userCredential.user.uid;
     this.getRegister(uid).then(query => {
-      query.forEach(element => this.currentRegister = element.data() as Register);      
+      query.forEach(element => this.currentRegister = element.data() as Register);
     });
-    
+
     return this.currentRegister;
   }
 
@@ -108,7 +109,7 @@ export class RegistersService {
     const role = 'Empleado';
     this.currentRegister = {email, uid, nickname, photoURL, phoneNumber, role};
     const registersRef = collection(this.firestore, 'registers');
-    return addDoc(registersRef, {uid, email, nickname, photoURL, phoneNumber, role});    
+    return addDoc(registersRef, {uid, email, nickname, photoURL, phoneNumber, role});
   }
 
   updateRegister({uid, nickname, photoURL, phoneNumber, role}: Register) : Promise<any> {

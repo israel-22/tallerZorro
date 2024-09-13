@@ -3,37 +3,40 @@
     style="font-family:Arial, Helvetica, sans-serif;">
     <thead class="text-xs text-white  uppercase bg-blue-400">
       <tr>
-        <th scope="col" class="p-4">Foto</th>
-        <th scope="col" class="p-4">Nombre de preferencia</th>
-        <th scope="col" class="p-4">Correo Eléctronico</th>
-        <th scope="col" class="p-4">Role</th>
-        <!-- <th scope="col" class="p-4">Acciones</th> -->
+        <th scope="col" class="p-4">Producto</th>
+              <th scope="col" class="p-4">Categoria</th>
+              <th scope="col" class="p-4">Descripción</th>
+              <th scope="col" class="p-4">Precio</th>
+              <th scope="col" class="p-4">Tipo</th>
       </tr>
     </thead>
 
-    <tbody *ngFor="let user of users"   class="hover:text-white  hover:bg-orange-300">
+    <tbody *ngFor="let product of Products"   class="hover:text-white  hover:bg-orange-300">
 
       <tr class="border-b  border-gray-60">
 
         <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap  ">
           <div class="flex items-center mr-3 ">
-            <img [src]="user.photoURL" [alt]="user.nickname" class ="h-50 w-50 rounded">
+            <img [src]="product.image" [alt]="product.name" class ="h-12 w-auto mr-3 rounded">
           </div>
         </th>
 
         <td class="px-4 py-3">
           <span class="bg-primary-100 text-black rounded">
-          {{user.nickname}}
+          {{product.name}}
           </span>
         </td>
 
         <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap  ">
           <div class="flex items-center">
-          {{user.email}}
+          {{product.categoria}}
           </div>
         </td>
         <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap ">
-          {{user.role}}
+        <span>$</span> {{product.precio}}
+        </td>
+        <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap ">
+          {{product.tipo}}
         </td>
       </tr>
     </tbody>
